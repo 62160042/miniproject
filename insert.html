@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <div class="container p-3 my-3 bg-dark text-white">
+    <center><h1><p class="text-primary" >Add Phone</p></center></h1>
+  </div>  
+    </form><h2></center><h2>
+        <style>
+            body{
+                background-image: url("https://wallpaperaccess.com/full/260170.png");
+                background-size: cover;
+            }
+            </style>
+</head>
+
+
+
+<body>
+<form action="insert.php" method="POST" enctype="multipart/form-data">
+    <div class="container p-3 my-3 bg-dark text-white">
+<h3><div>ชื่อโทรศัพท์</div>
+    <input type="text" name="gdname"><br>
+    <div>ข้อมูลโทรศัพท์</div>
+    <input type="text" name="detail"><br>
+    <div>ราคา</div>
+    <input type="text" name="price"><br>
+    <div>รูปภาพโทรศัพท์</div>
+    <input type="file" name="imagess"><br>
+    <button type="submit" name="upload">Add</button>
+</h3>
+    </div>
+</body>
+
+<center><h2><form method="post" action="main.html">
+    <input type="submit" value="Back to main" class="btn btn-dark">
+    </form>
+    </h2>
+</center>

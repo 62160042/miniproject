@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<div class="container p-3 my-3 bg-dark text-white">
+    <center><h1><p class="text-primary">PHONE Shop</p></center></h1>
+</div>
+    <center><h2><input type="text" id="kw"></center></h2>
+    <center><button onclick="search()" class="btn btn-dark">Search</button></center>
+    <center><h2><form method="post" action="insert.html">
+        <input type="submit" value="Add Phone" class="btn btn-dark">
+    </form><h2></center>
+    <center><h2><div class="grid-container" id="disp"></div></h2></center>
+
+    
+    <style>
+      body{
+          background-image: url("https://wallpaperaccess.com/full/260170.png");
+          background-size: cover;
+      }
+      </style>
+
+</head>
+
+<body>
+    <div class="grid-container">
+    <script>
+        search();
+        function search() {
+            kw = document.getElementById('kw').value;
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    arr = JSON.parse(this.responseText);
+                    console.log(arr);
+                if (arr.length == 0) {
+                        document.getElementById('disp').innerHTML = "Not found";
+                    } else {
+                        html = "";
+                        for (i = 0; i < arr.length; i++) {
+                            html += "<div>"
+                            + "<br>" + "ชื่อโทรศัพท์ :"+arr[i].gdname
+                            + "<br>" + "ข้อมูลสินค้า :"+arr[i].detail
+                            + "<br>" + "ราคา :"+arr[i].price+" บาท"
+                            + "<br><img src='image/"+arr[i].imagess+ "'height='200' width='220'></center>"
+                            + "</div>";
+                        }
+                        document.getElementById('disp').innerHTML = html;
+                    }
+                }
+            }
+            parameters = "kw=" + kw;
+            xmlhttp.open("post", "main.php");
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send(parameters);
+        }
+    </script>
+    </div>
+</body>
+</html>
